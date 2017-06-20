@@ -1,0 +1,36 @@
+AllCops:
+  Exclude:
+    - bin/**/*
+    - db/schema.rb
+
+# Disables "Line is too long"
+LineLength:
+  Enabled: false
+
+# Disables "Module has too many lines"
+ModuleLength:
+  Enabled: false
+
+# Disables "Method has too many lines."
+MethodLength:
+  Enabled: false
+
+# Disables "Block has too many lines."
+Metrics/BlockLength:
+  Enabled: false
+
+# Disables "Missing frozen string literal comment."
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Disables "%w-literals should be delimited by [ and ]"
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+# Disables "Use nested module/class definitions instead of compact style."
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# Disables "Missing top-level class documentation comment."
+Style/Documentation:
+  Enabled: false
