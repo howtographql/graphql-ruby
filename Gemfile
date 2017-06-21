@@ -15,6 +15,7 @@ gem 'search_object_graphql'
 
 group :development, :test do
   gem 'byebug', platforms: %i(mri mingw x64_mingw)
+  gem 'factory_girl_rails'
   gem 'graphiql-rails'
   gem 'rubocop'
   gem 'rubocop-rails'
