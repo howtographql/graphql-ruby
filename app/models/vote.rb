@@ -1,7 +1,6 @@
 class Vote < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :link
+  belongs_to :user, validate: true
+  belongs_to :link, validate: true
 
-  validates :link_id, presence: true
-  validates :user_id, presence: true, uniqueness: { scope: :link_id }
+  validates :user_id, uniqueness: { scope: :link_id }
 end
