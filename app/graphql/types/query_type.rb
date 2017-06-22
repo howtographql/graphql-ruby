@@ -1,8 +1,10 @@
 Types::QueryType = GraphQL::ObjectType.define do
   name 'Query'
 
-  field :testField, types.String do
-    description 'An example field added by the generator'
-    resolve ->(_obj, _args, _ctx) { 'Hello World!' }
+  field :node, GraphQL::Relay::Node.field
+
+  field :allLinks, function: Resolvers::LinksSearch
+  field :_allLinksMeta, Types::QueryMetaType do
+    resolve ->(_obj, _args, _ctx) { Link.count }
   end
 end
