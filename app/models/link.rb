@@ -3,6 +3,6 @@ class Link < ActiveRecord::Base
 
   has_many :votes, dependent: :destroy
 
-  validates :url, presence: true
+  validates :url, presence: true, url: true
   validates :description, presence: true
 end

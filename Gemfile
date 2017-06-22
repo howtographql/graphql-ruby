@@ -8,6 +8,7 @@ end
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.0'
 gem 'sqlite3'
+gem 'validate_url'
 
 gem 'graphql'
 gem 'search_object'
