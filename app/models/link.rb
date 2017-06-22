@@ -5,4 +5,6 @@ class Link < ActiveRecord::Base
 
   validates :url, presence: true, url: true
   validates :description, presence: true
+
+  scope :like, ->(field, value) { where arel_table[field].matches("%#{value}%") }
 end
