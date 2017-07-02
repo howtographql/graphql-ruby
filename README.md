@@ -7,9 +7,9 @@ Install dependencies:
 ```
 bundle install
 
-rake db:create
-rake db:migrate
-rake db:seed
+rails db:create
+rails db:migrate
+rails db:seed
 ```
 
 Starting the server:
@@ -21,7 +21,7 @@ rails server
 Opening the application:
 
 ```
-open http://localhost:3000
+open http://localhost:3000/
 ```
 
 ## Interesting Files:
