@@ -29,9 +29,9 @@ class Resolvers::LinksSearch
   option :orderBy, type: OrderEnum, default: 'createdAt_DESC'
 
   def apply_filter(scope, value)
-    scope = scope.like(:description, value[:description_contains]) if value[:description_contains]
-    scope = scope.like(:url, value[:url_contains]) if value[:url_contains]
-    scope = value[:OR].reduce(scope) { |s, v| apply_filter(s, v) } if value[:OR].present?
+    scope = scope.like(:description, value['description_contains']) if value['description_contains']
+    scope = scope.like(:url, value['url_contains']) if value['url_contains']
+    scope = value['OR'].reduce(scope) { |s, v| apply_filter(s, v) } if value['OR'].present?
     scope
   end
 

@@ -25,14 +25,14 @@ class Resolvers::LinksSearchTest < ActiveSupport::TestCase
 
     result = find(
       filter: {
-        description_contains: 'test',
-        OR: [{
-          url_contains: 'test',
-          OR: [{
-            url_contains: '.com'
+        'description_contains' => 'test',
+        'OR' => [{
+          'url_contains' => 'test',
+          'OR' => [{
+            'url_contains' => '.com'
           }]
         }, {
-          description_contains: 'content'
+          'description_contains' => 'content'
         }]
       }
     )
