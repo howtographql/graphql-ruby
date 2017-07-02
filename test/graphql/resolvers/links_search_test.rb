@@ -20,24 +20,26 @@ class Resolvers::LinksSearchTest < ActiveSupport::TestCase
   end
 
   test 'filter option' do
-    link = create :link, description: 'test content', url: 'http://test.com'
-    create :link, description: 'test similar', url: 'http://test.com'
+    link1 = create :link, description: 'test1', url: 'http://test1.com'
+    link2 = create :link, description: 'test2', url: 'http://test2.com'
+    link3 = create :link, description: 'test3', url: 'http://test3.com'
+    create :link, description: 'test4', url: 'http://test4.com'
 
     result = find(
       filter: {
-        'description_contains' => 'test',
+        'description_contains' => 'test1',
         'OR' => [{
-          'url_contains' => 'test',
+          'url_contains' => 'test2',
           'OR' => [{
-            'url_contains' => '.com'
+            'url_contains' => 'test3'
           }]
         }, {
-          'description_contains' => 'content'
+          'description_contains' => 'test2'
         }]
       }
     )
 
-    assert_equal result, [link]
+    assert_equal result.map(&:description).sort, [link1, link2, link3].map(&:description).sort
   end
 
   test 'order by createdAt_ASC' do

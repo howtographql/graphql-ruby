@@ -29,10 +29,20 @@ class Resolvers::LinksSearch
   option :orderBy, type: OrderEnum, default: 'createdAt_DESC'
 
   def apply_filter(scope, value)
+    branches = normalize_filters(value).reduce { |a, b| a.or(b) }
+    scope.merge branches
+  end
+
+  def normalize_filters(value, branches = [])
+    scope = Link.all
     scope = scope.like(:description, value['description_contains']) if value['description_contains']
     scope = scope.like(:url, value['url_contains']) if value['url_contains']
-    scope = value['OR'].reduce(scope) { |s, v| apply_filter(s, v) } if value['OR'].present?
-    scope
+
+    branches << scope
+
+    value['OR'].reduce(branches) { |s, v| normalize_filters(v, s) } if value['OR'].present?
+
+    branches
   end
 
   def apply_first(scope, value)
