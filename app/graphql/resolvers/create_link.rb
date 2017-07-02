@@ -1,7 +1,6 @@
 class Resolvers::CreateLink < GraphQL::Function
   argument :description, !types.String
   argument :url, !types.String
-  argument :postedById, types.ID
 
   type Types::LinkType
 
@@ -9,7 +8,7 @@ class Resolvers::CreateLink < GraphQL::Function
     Link.create!(
       description: args[:description],
       url: args[:url],
-      user: GraphqlSchema.object_from_id(args[:postedById], ctx)
+      user: ctx[:current_user]
     )
   rescue ActiveRecord::RecordInvalid => e
     GraphQL::ExecutionError.new("Invalid input: #{e.record.errors.full_messages.join(', ')}")

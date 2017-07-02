@@ -8,18 +8,20 @@ class Resolvers::SignInUser < GraphQL::Function
     field :user, Types::UserType
   end
 
-  def call(_obj, args, _ctx)
-    return unless args[:email]
+  def call(_obj, args, ctx)
+    input = args[:email]
 
-    email = args[:email][:email]
+    return unless input
 
-    user = User.find_by email: email
+    user = User.find_by email: input[:email]
 
     return unless user
+    return unless user.authenticate(input[:password])
 
-    {
-      user: user,
-      token: SecureRandom.uuid
-    }
+    token = AuthToken.token_for_user(user)
+
+    ctx[:session][:token] = token
+
+    OpenStruct.new(user: user, token: token)
   end
 end

@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class Resolvers::CreateVoteTest < ActiveSupport::TestCase
-  def perform(args = {})
-    Resolvers::CreateVote.new.call(nil, args, nil)
+  def perform(user: nil, **args)
+    Resolvers::CreateVote.new.call(nil, args, current_user: user)
   end
 
   def record_id(record)
@@ -14,7 +14,7 @@ class Resolvers::CreateVoteTest < ActiveSupport::TestCase
     link = create :link
 
     vote = perform(
-      userId: record_id(user),
+      user: user,
       linkId: record_id(link)
     )
 

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Resolvers::SignInUserTest < ActiveSupport::TestCase
   def perform(args = {})
-    Resolvers::SignInUser.new.call(nil, args, nil)
+    Resolvers::SignInUser.new.call(nil, args, session: {})
   end
 
   test 'success' do
@@ -11,16 +11,26 @@ class Resolvers::SignInUserTest < ActiveSupport::TestCase
     result = perform(
       email: {
         email: user.email,
-        password: '[omitted]'
+        password: user.password
       }
     )
 
     assert result.present?
-    assert result[:token].present?
-    assert_equal result[:user], user
+    assert result.token.present?
+    assert_equal result.user, user
   end
 
-  test 'failure' do
+  test 'failure because no credentials' do
     assert_nil perform
+  end
+
+  test 'failure because wrong email' do
+    create :user
+    assert_nil perform(email: { email: 'wrong' })
+  end
+
+  test 'failure because wrong password' do
+    user = create :user
+    assert_nil perform(email: { email: user.email, password: 'wrong' })
   end
 end

@@ -1,12 +1,8 @@
 require 'test_helper'
 
 class Resolvers::CreateLinkTest < ActiveSupport::TestCase
-  def perform(args = {})
-    Resolvers::CreateLink.new.call(nil, args, nil)
-  end
-
-  def record_id(record)
-    GraphqlSchema.id_from_object(record, nil, nil)
+  def perform(user: nil, **args)
+    Resolvers::CreateLink.new.call(nil, args, current_user: user)
   end
 
   test 'success' do
@@ -15,7 +11,7 @@ class Resolvers::CreateLinkTest < ActiveSupport::TestCase
     link = perform(
       url: 'http://example.com',
       description: 'description',
-      postedById: record_id(user)
+      user: user
     )
 
     assert link.persisted?

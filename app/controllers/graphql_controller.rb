@@ -23,8 +23,8 @@ class GraphqlController < ApplicationController
 
   def context
     {
-      # Query context goes here, for example:
-      # current_user: current_user,
+      session: session,
+      current_user: AuthToken.user_from_token(session[:token])
     }
   end
 
