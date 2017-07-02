@@ -1,7 +1,7 @@
 AllCops:
   Exclude:
     - bin/**/*
-    - db/schema.rb
+    - db/**/*
 
 # Disables "Line is too long"
 LineLength:
