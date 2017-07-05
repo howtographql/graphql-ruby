@@ -6,7 +6,7 @@ class Resolvers::CreateVoteTest < ActiveSupport::TestCase
   end
 
   def record_id(record)
-    GraphqlSchema.id_from_object(record, nil, nil)
+    GraphqlTutorialSchema.id_from_object(record, nil, nil)
   end
 
   test 'success' do

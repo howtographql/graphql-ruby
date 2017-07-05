@@ -27,7 +27,7 @@ open http://localhost:3000/
 ## Interesting Files:
 
 - [GraphqlController](https://github.com/howtographql/graphql-ruby/blob/master/app/controllers/graphql_controller.rb) - GraphQL controller (api entry point)
-- [GraphqlSchema](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/graphql_schema.rb) - the schema definition
+- [GraphqlTutorialSchema](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/graphql_tutorial_schema.rb) - the schema definition
 - [Mutations](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/types/mutation_type.rb) - root mutations
 - [Queries](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/types/query_type.rb) - root queries
 - [UserType](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/types/user_type.rb) - record type

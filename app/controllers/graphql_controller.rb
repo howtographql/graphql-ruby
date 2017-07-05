@@ -1,6 +1,6 @@
 class GraphqlController < ApplicationController
   def execute
-    result = GraphqlSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
+    result = GraphqlTutorialSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
   rescue => e
     raise e unless Rails.env.development?
