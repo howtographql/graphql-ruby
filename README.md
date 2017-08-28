@@ -44,7 +44,7 @@ open http://localhost:3000/
 
 List first 10 links, containing "example":
 
-```
+```graphql
 {
   allLinks(first: 10, filter: {description_contains: "example"}) {
     id
@@ -62,7 +62,7 @@ List first 10 links, containing "example":
 
 Creates new user:
 
-```
+```graphql
 mutation {
   createUser(
     name: "Radoslav Stankov",
@@ -79,7 +79,7 @@ mutation {
 
 Creates new user token:
 
-```
+```graphql
 mutation {
   signinUser(email: {email: "rado@example.com", password: "123456"}) {
     token
@@ -94,7 +94,7 @@ mutation {
 
 Creates new link:
 
-```
+```graphql
 mutation {
   createLink(url:"http://example.com", description:"Example") {
     id
@@ -110,7 +110,7 @@ mutation {
 
 Creates new vote:
 
-```
+```graphql
 mutation {
   createVote(linkId:"TGluay0yMQ==") {
     user {
