@@ -14,7 +14,7 @@ class GraphqlController < ApplicationController
   end
 
   def variables
-    ensure_hash params[:validates]
+    ensure_hash params[:variables]
   end
 
   def operation_name
