@@ -1,7 +1,7 @@
-require 'factory_girl'
+require 'factory_bot'
 
 if Vote.count.zero?
   20.times do
-    FactoryGirl.create :vote
+    FactoryBot.create :vote
   end
 end

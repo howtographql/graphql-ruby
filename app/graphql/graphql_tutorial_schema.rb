@@ -13,7 +13,7 @@ GraphqlTutorialSchema = GraphQL::Schema.define do
     record_class&.find_by id: record_id
   }
 
-  resolve_type lambda { |obj, _ctx|
+  resolve_type lambda { |_type, obj, _ctx|
     type = "::Types::#{obj.class}Type".safe_constantize
     return type if type.present?
 
