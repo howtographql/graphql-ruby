@@ -1,13 +1,9 @@
-Types::LinkType = GraphQL::ObjectType.define do
-  name 'Link'
-
-  interfaces [GraphQL::Relay::Node.interface]
-
-  global_id_field :id
-
-  field :createdAt, !Types::DateTimeType, property: :created_at
-  field :url, !types.String
-  field :description, !types.String
-  field :postedBy, -> { Types::UserType }, property: :user
-  field :votes, -> { !types[Types::VoteType] }
+module Types
+  class LinkType < BaseNode
+    field :created_at, DateTimeType, null: false
+    field :url, String, null: false
+    field :description, String, null: false
+    field :posted_by, UserType, null: false, method: :user
+    field :votes, [Types::VoteType], null: false
+  end
 end

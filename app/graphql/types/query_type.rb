@@ -1,10 +1,13 @@
-Types::QueryType = GraphQL::ObjectType.define do
-  name 'Query'
+module Types
+  class QueryType < BaseObject
+    field :node, field: GraphQL::Relay::Node.field
+    field :nodes, field: GraphQL::Relay::Node.plural_field
 
-  field :node, GraphQL::Relay::Node.field
+    field :all_links, function: Resolvers::LinksSearch
+    field :_all_links_meta, QueryMetaType, null: false
 
-  field :allLinks, function: Resolvers::LinksSearch
-  field :_allLinksMeta, Types::QueryMetaType do
-    resolve ->(_obj, _args, _ctx) { Link.count }
+    def _all_links_meta
+      Link.count
+    end
   end
 end

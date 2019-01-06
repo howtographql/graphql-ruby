@@ -1,6 +1,8 @@
-Types::AuthProviderEmailInput = GraphQL::InputObjectType.define do
-  name 'AUTH_PROVIDER_EMAIL'
+module Types
+  class AuthProviderEmailInput < BaseInputObject
+    graphql_name 'AUTH_PROVIDER_EMAIL'
 
-  argument :email, !types.String
-  argument :password, !types.String
+    argument :email, String, required: true
+    argument :password, String, required: true
+  end
 end
