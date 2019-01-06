@@ -8,6 +8,7 @@ GraphqlTutorialSchema = GraphQL::Schema.define do
 
   object_from_id lambda { |id, _ctx|
     return unless id.present?
+
     record_class_name, record_id = GraphQL::Schema::UniqueWithinType.decode(id)
     record_class = record_class_name.safe_constantize
     record_class&.find_by id: record_id
