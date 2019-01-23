@@ -1,7 +1,11 @@
-Types::QueryMetaType = GraphQL::ObjectType.define do
-  name '_QueryMeta'
+module Types
+  class QueryMetaType < BaseObject
+    graphql_name '_QueryMeta'
 
-  field :count, !types.Int do
-    resolve ->(obj, _args, _ctx) { obj }
+    field :count, Int, null: false
+
+    def count
+      object
+    end
   end
 end

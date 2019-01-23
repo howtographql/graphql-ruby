@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class Resolvers::SignInUserTest < ActiveSupport::TestCase
+class Mutations::SignInUserTest < ActiveSupport::TestCase
   def perform(args = {})
-    Resolvers::SignInUser.new.call(nil, args, session: {})
+    Mutations::SignInUser.new(object: nil, context: { session: {} }).resolve(args)
   end
 
   test 'success' do
@@ -15,9 +15,8 @@ class Resolvers::SignInUserTest < ActiveSupport::TestCase
       }
     )
 
-    assert result.present?
-    assert result.token.present?
-    assert_equal result.user, user
+    assert result[:token].present?
+    assert_equal result[:user], user
   end
 
   test 'failure because no credentials' do

@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class Resolvers::CreateLinkTest < ActiveSupport::TestCase
+class Mutations::CreateLinkTest < ActiveSupport::TestCase
   def perform(user: nil, **args)
-    Resolvers::CreateLink.new.call(nil, args, current_user: user)
+    Mutations::CreateLink.new(object: nil, context: { current_user: user }).resolve(args)
   end
 
   test 'success' do

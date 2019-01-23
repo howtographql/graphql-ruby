@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class Resolvers::CreateUserTest < ActiveSupport::TestCase
+class Mutations::CreateUserTest < ActiveSupport::TestCase
   def perform(args = {})
-    Resolvers::CreateUser.new.call(nil, args, nil)
+    Mutations::CreateUser.new(object: nil, context: {}).resolve(args)
   end
 
   test 'success' do
     user = perform(
       name: 'Test User',
-      authProvider: {
+      auth_provider: {
         email: {
           email: 'email@example.com',
           password: '[omitted]'

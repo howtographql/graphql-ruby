@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class Resolvers::CreateVoteTest < ActiveSupport::TestCase
+class Mutations::CreateVoteTest < ActiveSupport::TestCase
   def perform(user: nil, **args)
-    Resolvers::CreateVote.new.call(nil, args, current_user: user)
+    Mutations::CreateVote.new(object: nil, context: { current_user: user }).resolve(args)
   end
 
   def record_id(record)
@@ -15,7 +15,7 @@ class Resolvers::CreateVoteTest < ActiveSupport::TestCase
 
     vote = perform(
       user: user,
-      linkId: record_id(link)
+      link_id: record_id(link)
     )
 
     assert vote.persisted?

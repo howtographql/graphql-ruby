@@ -1,8 +1,8 @@
-Types::MutationType = GraphQL::ObjectType.define do
-  name 'Mutation'
-
-  field :createUser, function: Resolvers::CreateUser.new
-  field :createLink, function: Resolvers::CreateLink.new
-  field :createVote, function: Resolvers::CreateVote.new
-  field :signinUser, function: Resolvers::SignInUser.new
+module Types
+  class MutationType < BaseObject
+    field :create_user, mutation: Mutations::CreateUser
+    field :create_link, mutation: Mutations::CreateLink
+    field :create_vote, mutation: Mutations::CreateVote
+    field :signin_user, mutation: Mutations::SignInUser
+  end
 end

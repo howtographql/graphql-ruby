@@ -1,13 +1,9 @@
-Types::UserType = GraphQL::ObjectType.define do
-  name 'User'
-
-  interfaces [GraphQL::Relay::Node.interface]
-
-  global_id_field :id
-
-  field :createdAt, !Types::DateTimeType, property: :created_at
-  field :name, !types.String
-  field :email, !types.String
-  field :votes, -> { !types[Types::VoteType] }
-  field :links, -> { !types[Types::LinkType] }
+module Types
+  class UserType < BaseNode
+    field :created_at, DateTimeType, null: false
+    field :name, String, null: false
+    field :email, String, null: false
+    field :votes, [VoteType], null: false
+    field :links, [LinkType], null: false
+  end
 end

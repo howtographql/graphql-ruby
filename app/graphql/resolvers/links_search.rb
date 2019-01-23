@@ -6,19 +6,15 @@ class Resolvers::LinksSearch
 
   scope { Link.all }
 
-  type !types[Types::LinkType]
+  type types[Types::LinkType]
 
-  LinkFilter = GraphQL::InputObjectType.define do
-    name 'LinkFilter'
-
-    argument :OR, -> { types[LinkFilter] }
-    argument :description_contains, types.String
-    argument :url_contains, types.String
+  class LinkFilter < ::Types::BaseInputObject
+    argument :OR, [self], required: false
+    argument :description_contains, String, required: false
+    argument :url_contains, String, required: false
   end
 
-  OrderEnum = GraphQL::EnumType.define do
-    name 'LinkOrderBy'
-
+  class LinkOrderBy < ::Types::BaseEnum
     value 'createdAt_ASC'
     value 'createdAt_DESC'
   end
@@ -26,7 +22,7 @@ class Resolvers::LinksSearch
   option :filter, type: LinkFilter, with: :apply_filter
   option :first, type: types.Int, with: :apply_first
   option :skip, type: types.Int, with: :apply_skip
-  option :orderBy, type: OrderEnum, default: 'createdAt_DESC'
+  option :orderBy, type: LinkOrderBy, default: 'createdAt_DESC'
 
   def apply_filter(scope, value)
     branches = normalize_filters(value).reduce { |a, b| a.or(b) }
