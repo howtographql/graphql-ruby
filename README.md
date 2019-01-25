@@ -46,7 +46,7 @@ List first 10 links, containing "example":
 
 ```graphql
 {
-  allLinks(first: 10, filter: {description_contains: "example"}) {
+  allLinks(first: 10, filter: {descriptionContains: "example"}) {
     id
     url
     description
