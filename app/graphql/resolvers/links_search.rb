@@ -31,12 +31,12 @@ class Resolvers::LinksSearch
 
   def normalize_filters(value, branches = [])
     scope = Link.all
-    scope = scope.where('description LIKE ?', "%#{value['description_contains']}%") if value['description_contains']
-    scope = scope.where('url LIKE ?', "%#{value['url_contains']}%") if value['url_contains']
+    scope = scope.where('description LIKE ?', "%#{value[:description_contains]}%") if value[:description_contains]
+    scope = scope.where('url LIKE ?', "%#{value[:url_contains]}%") if value[:url_contains]
 
     branches << scope
 
-    value['OR'].reduce(branches) { |s, v| normalize_filters(v, s) } if value['OR'].present?
+    value[:OR].reduce(branches) { |s, v| normalize_filters(v, s) } if value[:OR].present?
 
     branches
   end
