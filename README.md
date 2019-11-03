@@ -35,10 +35,10 @@ open http://localhost:3000/
 - [LinkType](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/types/link_type.rb) - record type
 - [DateTimeType](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/types/date_time_type.rb) - scalar type
 - [LinksSearch](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/resolvers/links_search.rb) - complex search resolver and its [tests](https://github.com/howtographql/graphql-ruby/blob/master/test/graphql/resolvers/links_search_test.rb)
-- [CreateLink](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/resolvers/create_link.rb) - mutation and its [tests](https://github.com/howtographql/graphql-ruby/blob/master/test/graphql/resolvers/create_link_test.rb)
-- [CreateUser](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/resolvers/create_user.rb) - mutation and its [tests](https://github.com/howtographql/graphql-ruby/blob/master/test/graphql/resolvers/create_user_test.rb)
-- [CreateVote](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/resolvers/create_vote.rb) - mutation and its [tests](https://github.com/howtographql/graphql-ruby/blob/master/test/graphql/resolvers/create_vote_test.rb)
-- [SignInUser](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/resolvers/sign_in_user.rb) - mutation and its [tests](https://github.com/howtographql/graphql-ruby/blob/master/test/graphql/resolvers/sign_in_user_test.rb)
+- [CreateLink](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/mutations/create_link.rb) - mutation and its [tests](https://github.com/howtographql/graphql-ruby/blob/master/test/graphql/mutations/create_link_test.rb)
+- [CreateUser](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/mutations/create_user.rb) - mutation and its [tests](https://github.com/howtographql/graphql-ruby/blob/master/test/graphql/mutations/create_user_test.rb)
+- [CreateVote](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/mutations/create_vote.rb) - mutation and its [tests](https://github.com/howtographql/graphql-ruby/blob/master/test/graphql/mutations/create_vote_test.rb)
+- [SignInUser](https://github.com/howtographql/graphql-ruby/blob/master/app/graphql/mutations/sign_in_user.rb) - mutation and its [tests](https://github.com/howtographql/graphql-ruby/blob/master/test/graphql/mutations/sign_in_user_test.rb)
 
 ## Sample GraphQL Queries
 
