@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bcrypt'
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.12'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '~> 5.2.0'
 gem 'sqlite3'
