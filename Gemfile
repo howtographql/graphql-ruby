@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby '2.6.5'
+
 gem 'bcrypt'
 gem 'puma', '~> 3.12'
 gem 'rack-cors', require: 'rack/cors'
