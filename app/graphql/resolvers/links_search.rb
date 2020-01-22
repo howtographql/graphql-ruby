@@ -49,11 +49,11 @@ class Resolvers::LinksSearch
     scope.offset(value)
   end
 
-  def apply_orderBy_with_created_at_asc(scope) # rubocop:disable Style/MethodName
+  def apply_order_by_with_created_at_asc(scope)
     scope.order('created_at ASC')
   end
 
-  def apply_orderBy_with_created_at_desc(scope) # rubocop:disable Style/MethodName
+  def apply_order_by_with_created_at_desc(scope)
     scope.order('created_at DESC')
   end
 

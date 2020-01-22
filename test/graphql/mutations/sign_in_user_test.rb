@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Mutations::SignInUserTest < ActiveSupport::TestCase
   def perform(args = {})
-    Mutations::SignInUser.new(object: nil, context: { session: {} }).resolve(args)
+    Mutations::SignInUser.new(object: nil, field: nil, context: { session: {} }).resolve(args)
   end
 
   test 'success' do
