@@ -11,7 +11,7 @@ gem 'bcrypt'
 gem 'bootsnap', require: false
 gem 'puma', '~> 3.12'
 gem 'rack-cors', require: 'rack/cors'
-gem 'rails', '~> 5.2.4.1'
+gem 'rails', '~> 6.0.2.1'
 gem 'sqlite3'
 gem 'validate_url'
 
