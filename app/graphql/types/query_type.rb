@@ -1,7 +1,7 @@
 module Types
   class QueryType < BaseObject
-    field :node, field: GraphQL::Relay::Node.field
-    field :nodes, field: GraphQL::Relay::Node.plural_field
+    add_field GraphQL::Types::Relay::NodeField
+    add_field GraphQL::Types::Relay::NodesField
 
     field :all_links, function: Resolvers::LinksSearch
     field :_all_links_meta, QueryMetaType, null: false

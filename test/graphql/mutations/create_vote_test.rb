@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Mutations::CreateVoteTest < ActiveSupport::TestCase
   def perform(user: nil, **args)
-    Mutations::CreateVote.new(object: nil, context: { current_user: user }).resolve(args)
+    Mutations::CreateVote.new(object: nil, field: nil, context: { current_user: user }).resolve(args)
   end
 
   def record_id(record)
