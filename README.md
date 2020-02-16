@@ -7,9 +7,7 @@ Install dependencies:
 ```
 bundle install
 
-rails db:create
-rails db:migrate
-rails db:seed
+rails db:setup
 ```
 
 Starting the server:
@@ -125,4 +123,3 @@ mutation {
   }
 }
 ```
-
