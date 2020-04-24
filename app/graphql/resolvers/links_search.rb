@@ -6,7 +6,7 @@ class Resolvers::LinksSearch
 
   scope { Link.all }
 
-  type types[Types::LinkType]
+  type [Types::LinkType]
 
   class LinkFilter < ::Types::BaseInputObject
     argument :OR, [self], required: false
