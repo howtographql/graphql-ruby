@@ -79,7 +79,7 @@ Creates new user token:
 
 ```graphql
 mutation {
-  signinUser(email: {email: "rado@example.com", password: "123456"}) {
+  signinUser(credentials: {email: "rado@example.com", password: "123456"}) {
     token
     user {
       id
