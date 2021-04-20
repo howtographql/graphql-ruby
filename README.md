@@ -65,7 +65,7 @@ mutation {
   createUser(
     name: "Radoslav Stankov",
     authProvider: {
-      email: { email: "rado@example.com", password: "123456" }
+      credentials: { email: "rado@example.com", password: "123456" }
     }
   ) {
     id
