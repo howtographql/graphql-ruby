@@ -1,7 +1,7 @@
 require 'search_object/plugin/graphql'
 require 'graphql/query_resolver'
 
-class Resolvers::LinksSearch
+class Resolvers::LinksSearch < GraphQL::Schema::Resolver
   include SearchObject.module(:graphql)
 
   scope { Link.all }
