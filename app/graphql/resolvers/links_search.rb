@@ -57,7 +57,7 @@ class Resolvers::LinksSearch < GraphQL::Schema::Resolver
     scope.order('created_at DESC')
   end
 
-  def fetch_results
+  def resolve(obj, args, context)
     # NOTE: Don't run QueryResolver during tests
     return super unless context.present?
 
